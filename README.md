@@ -1,1 +1,61 @@
-# faizi8893.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Shirt Designer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f4f4f4;
+    }
+    select, input, button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    img {
+      margin-top: 20px;
+      max-width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Design Your Shirt with AI</h1>
+  <label for="color">Choose Shirt Color:</label>
+  <select id="color">
+    <option value="white">White</option>
+    <option value="black">Black</option>
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+  </select>
+
+  <br>
+  <label for="idea">Describe Your Design:</label>
+  <input type="text" id="idea" placeholder="e.g. Floral pattern, minimalist logo">
+
+  <br>
+  <button onclick="generateDesign()">Generate Design</button>
+
+  <div id="result">
+    <img id="shirtImage" src="" alt="Your AI Shirt Design" style="display:none;">
+  </div>
+
+  <script>
+    function generateDesign() {
+      const color = document.getElementById('color').value;
+      const idea = document.getElementById('idea').value;
+
+      const prompt = `T-shirt design with ${color} background and idea: ${idea}`;
+      const dummyImageURL = "https://via.placeholder.com/300x400.png?text=" + encodeURIComponent(prompt);
+
+      const img = document.getElementById('shirtImage');
+      img.src = dummyImageURL;
+      img.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
